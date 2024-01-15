@@ -1,6 +1,7 @@
 name: Count lines in Python Files in Repository
 
-on: [push]
+on: 
+    workflow_dispatch:
 
 jobs:
   count-python-files:
