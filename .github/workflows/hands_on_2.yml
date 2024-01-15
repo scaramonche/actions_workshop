@@ -1,6 +1,8 @@
 name: Lint Python Code
 
-# Add the correct triggers for this workflow
+on: 
+  workflow_dispatch:
+  push:
 
 jobs:
   run_python_linter:
@@ -15,7 +17,12 @@ jobs:
           sudo apt install python3-pip
 
       - name: Install dependencies
-        run: cd app && pip install -r requirements.txt
+        run: 
+          cd app && pip install -r requirements.txt
 
-      # Add steps that allow this workflow to run a linter on the Python code in the app directory
+      - name: Install pylint
+        run:  pip install pylint
+
+      - name: Run the linter
+        run: cd app & pylint *.py
 
