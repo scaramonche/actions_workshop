@@ -1,7 +1,7 @@
 name: Print Temperature of Dynamically Provided City
 
 on: 
-  workflow_dispatch
+  workflow_dispatch:
     inputs: 
       city: 
         description: "City name"
