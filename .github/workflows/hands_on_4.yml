@@ -20,4 +20,6 @@ jobs:
 
       # Adjust this step such that it uses a secret API key that we've set up earlier.
       - name: Run app and print secret temperature
-        run: cd app && python3 main.py Brussels
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }} 
+        run: cd app && python3 main.py ${{github.event.inputs.city}}
